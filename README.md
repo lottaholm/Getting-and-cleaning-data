@@ -40,7 +40,7 @@ From the train folder:
 ./UCI HAR Dataset/train/subject_train.txt
 ./UCI HAR Dataset/train/Y_train.txt
 
-** Next we want to merge the data sets as follows: 
+** Next we want to merge the data sets as follows:**
 
 All three files from the test-folder are merged into one data set called *DT_test_complete*. 
 All three files from the train-folder are merged into one data set called *DT_train_complete*. 
@@ -49,7 +49,7 @@ Now we have two datasets with the data, the subject and the activities. Next we 
 to merge these into one dataframe. We do this using the rbind() function and end 
 up with one data frame called *DT_all* with the dimensions 10299x563.
 
-**Assigning names to the variables:
+**Assigning names to the variables:**
 First we want to assign variable names to the columns. The variable names for the 
 first 561 columns (the actual data) are found in the *features.txt* -file, we start 
 by reading it in to a variable called *variable_names*.
@@ -60,23 +60,23 @@ containing information about the subjects and activities. We simply call the
 *Subject* and *Activity*. Then we assign the character vector's values to the 
 column (variable) names of our dataset *DT_all*.
 
-**Selecting only the columns we need:
+**Selecting only the columns we need:**
 We need only the columns containing measurements of mean and standard deviation. 
 Thus we select only the columns containing either "mean()", "std()" or "meanFreq()"
 in the variable name. Once we are done selecting, we clean the variable names to
 mke syntactically valid names.
 
-**Assigning descriptive labels:
+**Assigning descriptive labels:**
 Next we change the content in the Activity-variable to more descriptive labels 
 using the value labels listed in the *activity_labels.txt* file.
 
-**Creating one dataset with means for each pairs of subject-activity: 
+**Creating one dataset with means for each pairs of subject-activity:**
 We use the ddply function to calculate the means for each of the 79 measurements 
 for each subject (test person) and each activity. As we have 30 persons that 
 have performed six activities each, we will have 180 rows of observations. This 
 is the tidy data we need to complete the assignment.
 
-**Writing the data to a tabdelimited textfile:
+**Writing the data to a tabdelimited textfile:**
 When we are done, we write the data frame with the tidy data to a tab-delimited 
 text file using the write.table -function.
 
